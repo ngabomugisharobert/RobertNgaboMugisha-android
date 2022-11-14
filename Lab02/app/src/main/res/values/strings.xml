@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Lab02</string>
+    <string name="update">Update</string>
+    <string name="placeholder">type your comment here</string>
+   <string name="placeholder2">your comment is:</string>
+    <string name="contentDescription">Content Description</string>
+</resources>
