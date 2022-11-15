@@ -74,7 +74,7 @@ class MainActivity : ComponentActivity() {
         ) {
             Box(
                 modifier = Modifier
-                    .background(MaterialTheme.colors.primary)
+                    .background(MaterialTheme.colors.onBackground)
                     .padding(16.dp)
                     .fillMaxWidth()
                     .height(56.dp)
