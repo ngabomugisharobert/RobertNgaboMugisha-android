@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Lab03</string>
+    <string name="title_activity_tasks_screen">TasksScreen</string>
+    <string name="addTask">Add Task</string>
+    <string name="taskName">Task name</string>
+    <string name="authorName">task status</string>
+    <string name="TaskCreated">Task Created</string>
+    <string name="TaskUpdated">Task Updated</string>
+    <string name="TaskDeleted">Task Deleted</string>
+    <string name="TaskCompelete">Task Completed</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+</resources>
