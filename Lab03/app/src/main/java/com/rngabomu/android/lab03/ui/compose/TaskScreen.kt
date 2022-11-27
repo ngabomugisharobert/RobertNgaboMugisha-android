@@ -152,7 +152,6 @@ fun TaskItem(
             modifier = Modifier.padding(16.dp)
         ) {
             Text(text = item.title, style = MaterialTheme.typography.h6)
-            Text(text = (checkedState).toString(), style = MaterialTheme.typography.body1)
             Checkbox(checked = checkedState, onCheckedChange = onCheckedChange)
         }
 
