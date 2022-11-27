@@ -1,5 +1,6 @@
 package com.rngabomu.android.lab03.ui.compose
 import android.content.Context
+import android.util.Log
 import android.widget.CheckBox
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
@@ -8,6 +9,7 @@ import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -34,6 +36,7 @@ val viewModel: TaskViewModel = viewModel()
 
     val context = LocalContext.current
     var showDialog by remember { mutableStateOf(false) }
+    val taskListstate by remember { mutableStateOf(viewModel.taskList) }
 
 Scaffold(
 
@@ -57,12 +60,12 @@ Scaffold(
             )
         )
         {
-            items(viewModel.taskList, key={task -> task.taskId}) { task ->
+            items(taskListstate, key={task -> task.taskId}) { task ->
                 TaskItem(
                     item = task,
                     context,
                     {viewModel.delete(it)},
-                    {viewModel.update(it)})
+                    {viewModel.update(task)})
             }
         }
     }
@@ -90,7 +93,7 @@ fun AddTaskDialog(context: Context, dismissDialog:() -> Unit, addTask: (Task) ->
             Button(onClick = {
                 if(taskTextField.isNotEmpty()) {
                     val newID = UUID.randomUUID().toString();
-                    addTask(Task(newID, taskTextField, false))
+                    addTask(Task(newID, taskTextField, true))
                     Toast.makeText(
                         context,
                         context.resources.getString(R.string.TaskCreated),
@@ -114,8 +117,14 @@ fun AddTaskDialog(context: Context, dismissDialog:() -> Unit, addTask: (Task) ->
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun TaskItem(item: Task, context: Context, deleteTask: (Task) -> Unit, onCheckedChange: (Task) -> Unit) {
+fun TaskItem(
+    item: Task,
+    context: Context,
+    deleteTask: (Task) -> Unit,
+    onCheckedChange: (Boolean) -> Unit) {
     var showDeleteDialog by remember { mutableStateOf(false) }
+    Log.e("TaskItem", "TaskItem: $item")
+    var checkedState by remember { mutableStateOf(item.isCompleted) }
 
     Card(
         elevation = 4.dp,
@@ -143,8 +152,8 @@ fun TaskItem(item: Task, context: Context, deleteTask: (Task) -> Unit, onChecked
             modifier = Modifier.padding(16.dp)
         ) {
             Text(text = item.title, style = MaterialTheme.typography.h6)
-            Text(text = (item.isCompleted).toString(), style = MaterialTheme.typography.body1)
-            Checkbox(checked = item.isCompleted, onCheckedChange = { onCheckedChange(item) })
+            Text(text = (checkedState).toString(), style = MaterialTheme.typography.body1)
+            Checkbox(checked = checkedState, onCheckedChange = onCheckedChange)
         }
 
     }
