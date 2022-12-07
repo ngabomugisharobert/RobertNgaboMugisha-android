@@ -7,34 +7,21 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.rngabomu.android.lab04.R
 
 @Composable
 fun TopBar() {
     TopAppBar(
-        title = { Text(text = "Bottom Navbar", fontSize = 15.sp) },
+        title = { Text(text = stringResource(id = R.string.top_bar ) , fontSize = 15.sp) },
+
         backgroundColor = Color.DarkGray,
         contentColor = Color.White
     )
 }
 
-@Composable
-fun CustomBackButton() {
-    Button(
-//        add an icon to this button
-
-        onClick = {
-
-            // Handle navigating back
-
-        },
-
-        // Other attributes...
-    ) {
-        // Button content, such as an icon or text
-    }
-}
 
 @Preview(showBackground = true)
 @Composable

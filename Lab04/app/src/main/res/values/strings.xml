@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Lab04</string>
+    <string name="top_bar">Top Bar</string>
+    <string name="group">This is the Group page of the view, Here you will see Group</string>
+    <string name="welcome_to_group">Welcome to Group</string>
+    <string name="now_you_are_in_the">"Now you are in the "</string>
+    <string name="welcome_to_sttings">Welcome to Settings</string>
+    <string name="settings_msg">This is the Settings page of the view, Here you will see Settings</string>
+    <string name="welcome_to_home">This is the Settings page of the view, Here you will see Settings</string>
+    <string name="homeText">This is the home page of the view, Here you will see home</string>
 </resources>

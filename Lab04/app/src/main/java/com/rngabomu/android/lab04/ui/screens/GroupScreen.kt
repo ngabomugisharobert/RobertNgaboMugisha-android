@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -30,7 +31,7 @@ fun GroupScreenView() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(15.dp)
-                .clickable{ },
+                .clickable { },
             elevation = 10.dp
         ) {
             Column(
@@ -40,15 +41,15 @@ fun GroupScreenView() {
                     buildAnnotatedString {
                         withStyle(style = SpanStyle(fontWeight = FontWeight.W900, color = Color(0xFF4552B6),fontSize = 20.sp)
                         ) {
-                            append("Welcome to Group")
+                            append(stringResource(id = com.rngabomu.android.lab04.R.string.welcome_to_group))
                         }
                     }
                 )
                 Text(
                     buildAnnotatedString {
-                        append("Now you are in the ")
+                        append(stringResource(id = com.rngabomu.android.lab04.R.string.now_you_are_in_the))
                         withStyle(style = SpanStyle(fontWeight = FontWeight.W900, color = Color(0xFF4552B6),fontSize = 20.sp)) {
-                            append("This is the Group page of the view, Here you will see Group")
+                            append(stringResource(id = com.rngabomu.android.lab04.R.string.group))
                         }
 
                     }
